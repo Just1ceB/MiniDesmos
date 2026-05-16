@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniDesmos", "MiniDesmos.csproj", "{A9E054ED-26D4-4365-89E3-44A9F275C0C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9E054ED-26D4-4365-89E3-44A9F275C0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E054ED-26D4-4365-89E3-44A9F275C0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E054ED-26D4-4365-89E3-44A9F275C0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E054ED-26D4-4365-89E3-44A9F275C0C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {553065A8-BA81-4356-8F21-1A03040EE068}
+	EndGlobalSection
+EndGlobal
