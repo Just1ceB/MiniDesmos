@@ -113,6 +113,21 @@ namespace MiniDesmos
         }
 
         /// <summary>
+        /// Function will find thousand points on current <c>Parabola</c> instance
+        /// </summary>
+        /// <returns>Array of <c>Point</c> instances on <c>Parabola</c></returns>
+        public Point[] GetPoints()
+        {
+            Point[] points = new Point[1000]; 
+            for (int i = 0; i < 1000; i++)
+            {
+                points[i] = new Point(i, GetY(i));
+            }
+
+            return points;
+        }
+
+        /// <summary>
         /// Function will provide <b>a parameter</b> of the current <c>Parabola</c> instance
         /// </summary>
         /// <returns><b>a parameter</b> of the current <c>Parabola</c> instance</returns>

@@ -66,6 +66,21 @@ namespace MiniDesmos
         }
 
         /// <summary>
+        /// Function will find thousand points on current <c>Line</c> instance
+        /// </summary>
+        /// <returns>Array of <c>Point</c> instances on <c>Line</c></returns>
+        public Point[] GetPoints()
+        {
+            Point[] points = new Point[1000];
+            for (int i = 0; i < 1000; i++)
+            {
+                points[i] = new Point(i, GetY(i));
+            }
+
+            return points;
+        }
+
+        /// <summary>
         /// Function will check if <b>parameter</b> <c>Point</c> instance is on current <c>Line</c> instance (function)
         /// </summary>
         /// <param name="p"><c>Point</c> instance to check if it's on the current <c>Line</c> instance</param>

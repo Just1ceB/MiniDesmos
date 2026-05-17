@@ -1,10 +1,10 @@
 ﻿@page "/"
 @using MiniDesmos
 
-
-a=<input type="number" @bind-value="a" /><br />
-b=<input type="number" @bind-value="b" /><br />
-c=<input type="number" @bind-value="c" /><br />
+<input type="number" @bind-value="a" /><br />
+<input type="number" @bind-value="b" /><br />
+<input type="number" @bind-value="c" /><br />
+<button @onclick="Draw">Draw</button>
 
 
 <svg width="@width" height="@height" style="background-color:aqua">
@@ -14,22 +14,20 @@ c=<input type="number" @bind-value="c" /><br />
 
 @code
 {
-    // <button @onclick="Draw">Draw</button>
-    double a=2;
-    double b=1;
-    double c=1;
-
+    double a;
+    double b;
+    double c;
 
     string data = "";
     int width = 250, height = 550;
 
-
     void Draw()
     {
-        Parabula p = new Parabula(a, b, c);
-        MyPoint[] arr = p.Getpoints();
+        Parabola p = new Parabola(1, 2 ,3);
+        Point[] arr = p.GetPoints();
         for (int i = 0; i < arr.Length; i++)
         {
-            data += @$"<circle cx=""{(arr[i].getx()+10)*12.5}"" cy=""{(-arr[i].gety()+10)*27.5}"" r=""1"" />";
+            data += $@"<circle cx=""{(arr[i].GetX()+10)*12.5}"" cy=""{(-arr[i].GetY()+10)*27.5}"" r=""1"" />";
         }
     }
+}
