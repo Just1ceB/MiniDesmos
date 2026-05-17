@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Prjcts
+namespace MiniDesmos
 {
     internal class Parabola
     {

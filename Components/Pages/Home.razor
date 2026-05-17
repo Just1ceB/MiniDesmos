@@ -1,3 +1,35 @@
 ﻿@page "/"
+@using MiniDesmos
 
-<PageTitle>Mini Desmos - Homepage</PageTitle>
+
+a=<input type="number" @bind-value="a" /><br />
+b=<input type="number" @bind-value="b" /><br />
+c=<input type="number" @bind-value="c" /><br />
+
+
+<svg width="@width" height="@height" style="background-color:aqua">
+    @((MarkupString)data)
+</svg>
+
+
+@code
+{
+    // <button @onclick="Draw">Draw</button>
+    double a=2;
+    double b=1;
+    double c=1;
+
+
+    string data = "";
+    int width = 250, height = 550;
+
+
+    void Draw()
+    {
+        Parabula p = new Parabula(a, b, c);
+        MyPoint[] arr = p.Getpoints();
+        for (int i = 0; i < arr.Length; i++)
+        {
+            data += @$"<circle cx=""{(arr[i].getx()+10)*12.5}"" cy=""{(-arr[i].gety()+10)*27.5}"" r=""1"" />";
+        }
+    }
