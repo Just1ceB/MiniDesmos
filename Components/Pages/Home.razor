@@ -8,26 +8,80 @@
 
 
 <svg width="@width" height="@height" style="background-color:aqua">
-    @((MarkupString)data)
+    @((MarkupString)(xAxis + yAxis + graph))
 </svg>
 
 
 @code
 {
-    double a;
-    double b;
-    double c;
+    int width = 250;
+    int height = 550;
 
-    string data = "";
-    int width = 250, height = 550;
+    // How many dots will be there in the graph from 1 end to another
+    // For example 20 will be -10 to 10 and 30 will be -15 to 15
+    int graphSizeX = 20;
+    int graphSizeY = 20;
+    double pixelSizeX;
+    double pixelSizeY;
+
+    double a = 0;
+    double b = 0;
+    double c = 0;
+
+    string graph = "";
+    string xAxis = "";
+    string yAxis = "";
+
+    protected override void OnInitialized()
+    {
+        DrawXAxis();
+        DrawYAxis();
+
+        pixelSizeX = (double)width / graphSizeX;
+        pixelSizeY = (double)height / graphSizeY;
+    }
 
     void Draw()
     {
-        Parabola p = new Parabola(1, 2 ,3);
+        ClearGraph();
+        double pixelShiftX = (double)graphSizeX / 2;
+        double pixelShiftY = (double)graphSizeY / 2;
+
+        Console.WriteLine("Debug:");
+        Console.WriteLine(pixelShiftX);
+        Console.WriteLine(pixelShiftY);
+        Console.WriteLine(pixelSizeX);
+        Console.WriteLine(pixelSizeY);
+
+        Parabola p = new Parabola(a, b ,c);
+        Console.WriteLine($"Parabola extreme point: {p.Extreme()}");
         Point[] arr = p.GetPoints();
         for (int i = 0; i < arr.Length; i++)
         {
-            data += $@"<circle cx=""{(arr[i].GetX()+10)*12.5}"" cy=""{(-arr[i].GetY()+10)*27.5}"" r=""1"" />";
+            graph += $@"<circle cx=""{(arr[i].GetX()+pixelShiftX)*pixelSizeX}"" cy=""{(-arr[i].GetY()+pixelShiftY)*pixelSizeY}"" r=""1"" />";
+        }
+    }
+
+    void ClearGraph()
+    {
+        graph = "";
+    }
+
+    void DrawYAxis()
+    {
+        double xCoord = width / 2;
+        for (int i = 0; i < height; i++)
+        {
+            yAxis += $@"<circle cx=""{xCoord}"" cy=""{i}"" r=""0.4"" />";
+        }
+    }
+
+    void DrawXAxis()
+    {
+        double yCoord = height / 2;
+        for (int i = 0; i < width; i++)
+        {
+            xAxis += $@"<circle cx=""{i}"" cy=""{yCoord}"" r=""0.4"" />";
         }
     }
 }

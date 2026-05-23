@@ -118,10 +118,12 @@ namespace MiniDesmos
         /// <returns>Array of <c>Point</c> instances on <c>Parabola</c></returns>
         public Point[] GetPoints()
         {
-            Point[] points = new Point[1000]; 
-            for (int i = 0; i < 1000; i++)
+            Point[] points = new Point[2000]; 
+            double x = -10;
+            for (int i = 0; i < 2000; i++)
             {
-                points[i] = new Point(i, GetY(i));
+                points[i] = new Point(x, GetY(x));
+                x += 0.01;
             }
 
             return points;
