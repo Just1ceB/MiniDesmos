@@ -4,11 +4,13 @@
 <input type="number" @bind-value="a" /><br />
 <input type="number" @bind-value="b" /><br />
 <input type="number" @bind-value="c" /><br />
+<input type="color" @bind-value="color" /><br />
 <button @onclick="Draw">Draw</button>
+<button @onclick="ClearGraph">Delete Graphs</button>
 
 
 <svg width="@width" height="@height" style="background-color:aqua">
-    @((MarkupString)(xAxis + yAxis + graph))
+    @((MarkupString)(xAxis + yAxis + graph))    
 </svg>
 
 
@@ -32,6 +34,8 @@
     string xAxis = "";
     string yAxis = "";
 
+    string color = "";
+
     protected override void OnInitialized()
     {
         DrawXAxis();
@@ -43,7 +47,6 @@
 
     void Draw()
     {
-        ClearGraph();
         double pixelShiftX = (double)graphSizeX / 2;
         double pixelShiftY = (double)graphSizeY / 2;
 
